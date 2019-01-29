@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="DownloadButton">
+        <attr name="textSize" format="dimension|reference"/>
+        <attr name="cornerRadius" format="float|dimension|reference" />
+        <attr name="progressColor" format="color|reference" />
+        <attr name="bgColor" format="color|reference" />
+    </declare-styleable>
+    
+</resources>

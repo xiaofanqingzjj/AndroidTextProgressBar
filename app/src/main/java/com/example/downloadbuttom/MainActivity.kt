@@ -14,22 +14,22 @@ class MainActivity : AppCompatActivity() {
 
 
         val onClick = View.OnClickListener {
-            val downloadBTN = it as DownloadButton
+            val downloadBTN = it as TextProgressBar
 
-            val anim = ObjectAnimator.ofFloat(downloadBTN, DownloadButton.PROGRESS, 0f, 100f).setDuration(10100)
+            val anim = ObjectAnimator.ofFloat(downloadBTN, TextProgressBar.PROGRESS, 0f, 100f).setDuration(10100)
 
             when(downloadBTN.mState) {
-                DownloadButton.STATE_NORMAL-> {
+                TextProgressBar.STATE_NORMAL-> {
                     anim.start()
-                    downloadBTN.mState = DownloadButton.STATE_DOWNLOADING
+                    downloadBTN.mState = TextProgressBar.STATE_DOWNLOADING
                 }
-                DownloadButton.STATE_DOWNLOADING-> {
+                TextProgressBar.STATE_DOWNLOADING-> {
                     anim.pause()
-                    downloadBTN.mState = DownloadButton.STATE_PAUSED
+                    downloadBTN.mState = TextProgressBar.STATE_PAUSED
                 }
-                DownloadButton.STATE_PAUSED-> {
+                TextProgressBar.STATE_PAUSED-> {
                     anim.resume()
-                    downloadBTN.mState = DownloadButton.STATE_DOWNLOADING
+                    downloadBTN.mState = TextProgressBar.STATE_DOWNLOADING
                 }
             }
         }
@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         btn_download2.setOnClickListener(onClick)
 
         btn.setOnClickListener {
-            btn_download.mState = DownloadButton.STATE_NORMAL
-            btn_download1.mState = DownloadButton.STATE_NORMAL
-            btn_download2.mState = DownloadButton.STATE_NORMAL
+            btn_download.mState = TextProgressBar.STATE_NORMAL
+            btn_download1.mState = TextProgressBar.STATE_NORMAL
+            btn_download2.mState = TextProgressBar.STATE_NORMAL
 
 
         }

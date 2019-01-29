@@ -1,7 +1,6 @@
 package com.example.downloadbuttom
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.*
 import android.util.*
 import android.view.View
@@ -14,12 +13,12 @@ import android.view.View
  *
  * @author fortunexiao
  */
-class DownloadButton(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
+class TextProgressBar(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 
 
     companion object {
 
-        const val TAG = "DownloadButton"
+        const val TAG = "TextProgressBar"
 
         const val STATE_NORMAL = 0
         const val STATE_DOWNLOADING = 1
@@ -35,14 +34,14 @@ class DownloadButton(context: Context, attrs: AttributeSet? = null) : View(conte
         /**
          * 定义一个动画属性
          */
-        val PROGRESS: Property<DownloadButton, Float> = object : Property<DownloadButton, Float>(Float::class.java, "progress") {
+        val PROGRESS: Property<TextProgressBar, Float> = object : Property<TextProgressBar, Float>(Float::class.java, "progress") {
 
-            override fun set(`object`: DownloadButton?, value: Float) {
+            override fun set(`object`: TextProgressBar?, value: Float) {
                 `object`?.mProgress = value
             }
 
 
-            override fun get(`object`: DownloadButton?): Float {
+            override fun get(`object`: TextProgressBar?): Float {
                 return `object`?.mProgress ?: 0f
             }
         }
@@ -108,11 +107,11 @@ class DownloadButton(context: Context, attrs: AttributeSet? = null) : View(conte
 
 
         if (attrs != null) {
-            val a = context.obtainStyledAttributes(attrs, R.styleable.DownloadButton)
-            mTextSize = a.getDimensionPixelOffset(R.styleable.DownloadButton_textSize, mTextSize.toInt()).toFloat()
-            cornerRadius = a.getDimension(R.styleable.DownloadButton_cornerRadius, cornerRadius)
-            mProgressColor = a.getColor(R.styleable.DownloadButton_progressColor, mProgressColor)
-            mProgressBgColor = a.getColor(R.styleable.DownloadButton_bgColor, mProgressBgColor)
+            val a = context.obtainStyledAttributes(attrs, R.styleable.TextProgressBar)
+            mTextSize = a.getDimensionPixelOffset(R.styleable.TextProgressBar_textSize, mTextSize.toInt()).toFloat()
+            cornerRadius = a.getDimension(R.styleable.TextProgressBar_cornerRadius, cornerRadius)
+            mProgressColor = a.getColor(R.styleable.TextProgressBar_progressColor, mProgressColor)
+            mProgressBgColor = a.getColor(R.styleable.TextProgressBar_bgColor, mProgressBgColor)
 
             a.recycle()
         }
